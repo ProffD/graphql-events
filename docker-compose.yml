@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  # Backend API
+  event-app:
+    container_name: event-api
+    build: ./
+    command: npm start
+    working_dir: /usr/src/event-app
+    environment:
+      MONGO_URI: "mongodb+srv://proffd:vx1800@first-cluster-vq17o.mongodb.net/events-db?retryWrites=true&w=majority"
+    links:
+      - mongo
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./:/usr/src/event-app
+  mongo:
+    container_name: mongo
+    image: mongo
