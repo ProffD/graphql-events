@@ -74,10 +74,17 @@ app.use(
 );
 console.log("Starting Server and connecting to the database");
 mongoose
-  .connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
+  // .connect(process.env.MONGO_URI, {
+  //   useNewUrlParser: true,
+  //   useUnifiedTopology: true
+  // })
+  .connect(
+    "mongodb+srv://proffd:vx1800@first-cluster-vq17o.mongodb.net/events-db?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    }
+  )
   .then(results => {
     app.listen(3001, () => {
       console.log("Server is listening on port 3001");
