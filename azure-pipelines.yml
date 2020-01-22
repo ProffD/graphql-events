@@ -16,12 +16,10 @@ steps:
     displayName: "Install Node.js"
 
   - script: |
-      npm set fund false
       npm install
       npm run build
     displayName: "npm install and build"
 
   - task: PublishBuildArtifacts@1
-    displayName: "Publish Artifact: drop"
     inputs:
-      PathtoPublish: build
+      pathtoPublish: $(build.artifactstagingdirectory) # dist or build files
