@@ -24,7 +24,9 @@ steps:
     inputs:
       SourceFolder: "$(System.DefaultWorkingDirectory)"
       Contents: |
-        **/* !.git/**/* !node_modules/**/*
+        **
+        !.git/**/* 
+        !node_modules/**/*
       TargetFolder: "$(Build.ArtifactStagingDirectory)"
 
   - task: PublishBuildArtifacts@1
