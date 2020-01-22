@@ -24,16 +24,15 @@ steps:
     inputs:
       SourceFolder: "$(System.DefaultWorkingDirectory)"
       Contents: |
-        **\*.js
-        package.json
+        **\*
       TargetFolder: "$(Build.ArtifactStagingDirectory)"
 
   - task: PublishBuildArtifacts@1
     inputs:
       pathtoPublish: $(build.artifactstagingdirectory) # dist or build files
 
-  - task: AzureWebApp@1
-    inputs:
-      azureSubscription: "Free Trial (77625c83-ea5c-4c2a-b789-69a31b2f81cb)"
-      appName: "my-events"
-      package: $(System.ArtifactsDirectory)/**/*.zip
+  # - task: AzureWebApp@1
+  #   inputs:
+  #     azureSubscription: "Free Trial (77625c83-ea5c-4c2a-b789-69a31b2f81cb)"
+  #     appName: "my-events"
+  #     package: $(System.ArtifactsDirectory)/**/*.zip
