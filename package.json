@@ -2,11 +2,12 @@
   "name": "graphql-react-event-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel app.js -d dist",
-    "start": "nodemon app.js"
+    "build-test": "babel app.js -d dist",
+    "build": "webpack --mode production",
+    "start": "nodemon ./dist/app.js"
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +22,12 @@
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
-    "nodemon": "^2.0.2"
+    "babel-loader": "^8.0.6",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "nodemon": "^2.0.2",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-node-externals": "^1.7.2"
   }
 }
